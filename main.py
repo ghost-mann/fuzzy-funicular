@@ -1,6 +1,5 @@
 import random
 
-
 def play_game():
     print("Welcome the the number guessing game")
     print("Choose a difficulty level")
@@ -10,7 +9,7 @@ def play_game():
 
     while True:
         try:
-            choice = int(input("Enter your choice 1/2/3"))
+            choice = int(input("Enter your choice 1/2/3: "))
             if choice == 1:
                 max_attempts = 10
                 break
@@ -26,12 +25,12 @@ def play_game():
             print("Invalid input")
 
     secret_number = random.randint(1, 100)
-    print("A number between 1 and 100.You have {max_attempts} attempts left}")
+    print(f"A number between 1 and 100.You have {max_attempts} attempts left!")
 
     for attempt in range(1, max_attempts + 1):
         while True:
             try:
-                guess = int(input(f"Attempt {attempt}/{max_attempts}: Enter your guess: "))
+                guess = int(input(f" Current attempt {attempt}/{max_attempts}: Enter your guess: "))
                 break
             except ValueError:
                 print("Invalid input")
@@ -39,6 +38,8 @@ def play_game():
         if guess == secret_number:
             print(f"Congrats! You guessed {secret_number} correctly!")
 
+        else:
+            print(f"Sorry! You guessed incorrectly!")
 
 while True:
     play_game()
